@@ -1,0 +1,36 @@
+
+
+USE db_prontuario_exam;
+SELECT nome, data_consulta, medico, diagnostico, prescricao, observacoes
+FROM prontuarios
+JOIN pacientes
+ON prontuarios.paciente_id = pacientes.paciente_id
+;
+
+
+SELECT o.categoria, o.valor_planejado, o.data_inicio, o.data_fim, t.transacao_id, t.tipo AS tipo_transacao, t.valor, t.descricao
+FROM orcamentos o
+RIGHT JOIN transacoes t ON o.orcamento_id = t.orcamento_id
+;
+
+USE db_ecommerce_exam;
+
+SELECT item_pedido_id, nome
+FROM itens_pedido JOIN produtos
+ON itens_pedido.produto_id = produtos.produto_id
+;
+
+
+
+SELECT p.nome AS produto_nome, f.nome AS fornecedor_nome
+FROM produtos p
+LEFT JOIN fornecedores f ON p.fornecedor_id = f.fornecedor_id
+;
+
+
+USE db_crm_exam;
+SELECT nome, cliente_id as "id do cliente"
+FROM campanhas
+JOIN participacoes_campanha
+ON campanhas.campanha_id = participacoes_campanha.campanha_id
+;
